@@ -5,7 +5,11 @@ import java.util.Set;
 
 public class Analysis {
 
-  public Set<State> analyze(int value) {
+  public Set<State> analyze(int value) throws IllegalArgumentException {
+
+    if (value < 0) {
+      throw new IllegalArgumentException(String.format("Value was %,d; must be non-negative.", value));
+    }
 
     Set<State> result = EnumSet.noneOf(State.class);
 
